@@ -1,0 +1,176 @@
+/* =========================================================
+   TC03: Typography & Colors
+   ========================================================= */
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #2980b9;
+    --hover-color: #1a5276;
+    --bg-color: #f4f7f6;
+    --text-color: #34495e;
+    --white: #ffffff;
+    --border-radius: 8px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    /* TC04: Spacing & Alignment */
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* =========================================================
+   TC02: Page Layout Styling
+   ========================================================= */
+.container {
+    max-width: 800px;
+    background: var(--white);
+    /* TC04: Spacing & Alignment (Centering the container) */
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.banner {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+.media-section {
+    background: #ecf0f1;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+video, audio {
+    width: 100%;
+    max-width: 600px;
+    border-radius: var(--border-radius);
+    margin-top: 10px;
+}
+
+/* =========================================================
+   TC05: Flexbox Layout
+   ========================================================= */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Flexbox spacing */
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    padding: 10px 0;
+}
+
+/* =========================================================
+   TC07: Input Focus Transition
+   ========================================================= */
+input[type="text"], 
+input[type="email"], 
+input[type="date"], 
+select, 
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: inherit;
+    /* Transition for smooth focus effect */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, 
+select:focus, 
+textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(41, 128, 185, 0.3);
+    outline: none; /* Removes default browser outline */
+}
+
+/* =========================================================
+   TC06: Button Hover Transition
+   ========================================================= */
+input[type="submit"] {
+    background-color: var(--accent-color);
+    color: var(--white);
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    /* Transition for hover state */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+input[type="submit"]:active {
+    transform: translateY(0); /* Pushes button back down when clicked */
+}
+
+/* =========================================================
+   TC08 & TC09: Media Queries
+   ========================================================= */
+
+
+
+/* TC08: Tablet View (Screens smaller than 768px) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .banner {
+        height: 200px; /* Smaller banner for tablets */
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+/* TC09: Mobile View (Screens smaller than 480px) */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 0; /* Remove body padding so container touches edges */
+    }
+
+    .container {
+        margin: 0;
+        border-radius: 0; /* Remove border radius for full-width mobile view */
+        box-shadow: none;
+    }
+
+    .radio-group {
+        flex-direction: column; /* Stack radio buttons vertically */
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    input[type="submit"] {
+        width: 100%; /* Full width button on mobile */
+    }
+}
